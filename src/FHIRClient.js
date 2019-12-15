@@ -1,22 +1,22 @@
 const axios = require('axios');
-const { getUrlFromObject, getUrlFromString } = require('./utils/urlUtils.js');
 
 class FHIRClient {
-  constructor(baseUrl) {
-    this.baseUrl = baseUrl;
+  constructor(baseURL) {
+    this.baseURL = baseURL;
+    this.httpClient = axios.create({
+      baseURL,
+    });
   }
 
-  async read(param) {
-    let requestUrl;
-    if (typeof param === 'string') {
-      requestUrl = getUrlFromString(this.baseUrl, param);
-    } else if (param instanceof Object) {
-      requestUrl = getUrlFromObject(this.baseUrl, param);
-    } else {
-      throw new Error('Argument to read must be a string or an object');
+
+  async read({ resourceType, id }) {
+    if (!resourceType) {
+      throw new Error('resourceType is required');
+    } else if (!id) {
+      throw new Error('id is required');
     }
 
-    const response = await axios.get(requestUrl);
+    const response = await this.httpClient.get(`${resourceType}/${id}`);
     return response.data;
   }
 }
