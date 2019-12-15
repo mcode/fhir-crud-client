@@ -4,12 +4,15 @@
   "description": "A simple REST client for CRUD operations on FHIR server",
   "main": "index.js",
   "scripts": {
+    "lint": "eslint ./**/*.js",
+    "lint-fix": "eslint ./**/*.js --fix",
     "test": "jest"
   },
   "author": "mgramigna",
   "license": "Apache-2.0",
   "dependencies": {
-    "axios": "^0.19.0"
+    "axios": "^0.19.0",
+    "url-join": "^4.0.1"
   },
   "devDependencies": {
     "eslint": "^6.7.2",
