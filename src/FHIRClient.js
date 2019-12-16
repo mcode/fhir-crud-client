@@ -42,6 +42,17 @@ class FHIRClient {
     const response = await this.httpClient.put(`${resourceType}/${id}`, body);
     return response.data;
   }
+
+  async delete({ resourceType, id }) {
+    if (!resourceType) {
+      throw new Error('resourceType is required');
+    } else if (!id) {
+      throw new Error('id is required');
+    }
+
+    const response = await this.httpClient.delete(`${resourceType}/${id}`);
+    return response.data;
+  }
 }
 
 module.exports = FHIRClient;
