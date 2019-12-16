@@ -29,6 +29,19 @@ class FHIRClient {
     const response = await this.httpClient.get(`${resourceType}/${id}`);
     return response.data;
   }
+
+  async update({ resourceType, id, body }) {
+    if (!resourceType) {
+      throw new Error('resourceType is required');
+    } else if (!id) {
+      throw new Error('id is required');
+    } else if (!body) {
+      throw new Error('body is required');
+    }
+
+    const response = await this.httpClient.put(`${resourceType}/${id}`, body);
+    return response.data;
+  }
 }
 
 module.exports = FHIRClient;

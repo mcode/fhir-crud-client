@@ -7,10 +7,12 @@ const client = new FHIRClient(BASE_URL);
 
 test('test simple gets', async () => {
   nock(BASE_URL)
-    .get('/Patient/98')
+    .get(`/Patient/${examplePatient.id}`)
     .reply(200, examplePatient);
 
-  await client.read({ resourceType: 'Patient', id: '98' });
+  const patient = await client.read({ resourceType: 'Patient', id: `${examplePatient.id}` });
+  expect(patient.resourceType).toEqual('Patient');
+  expect(patient).toEqual(examplePatient);
 });
 
 test('test invalid gets', async () => {
@@ -29,10 +31,27 @@ test('test simple creation', async () => {
     .post('/Patient', examplePatient)
     .reply(201, examplePatient);
 
-  await client.create({ resourceType: 'Patient', body: examplePatient });
+  const patient = await client.create({ resourceType: 'Patient', body: examplePatient });
+  expect(patient.resourceType).toEqual('Patient');
+  expect(patient).toEqual(examplePatient);
 });
 
 test('test invalid creation params', async () => {
   await expect(client.create({ resourceType: 'Patient' })).rejects.toThrow();
   await expect(client.create({ body: examplePatient })).rejects.toThrow();
+});
+
+test('test updating resource', async () => {
+  const modifiedPatient = { ...examplePatient };
+  modifiedPatient.name = [{
+    family: 'NewName',
+    given: ['NewName'],
+  }];
+
+  nock(BASE_URL)
+    .put(`/Patient/${examplePatient.id}`, modifiedPatient)
+    .reply(200, modifiedPatient);
+
+  const newPatient = await client.update({ resourceType: 'Patient', id: examplePatient.id, body: modifiedPatient });
+  expect(newPatient).toEqual(modifiedPatient);
 });
