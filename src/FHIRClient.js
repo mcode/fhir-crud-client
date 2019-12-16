@@ -8,6 +8,16 @@ class FHIRClient {
     });
   }
 
+  async create({ resourceType, body }) {
+    if (!resourceType) {
+      throw new Error('resourceType is required');
+    } else if (!body) {
+      throw new Error('body is required');
+    }
+
+    const response = await this.httpClient.post(resourceType, body);
+    return response.data;
+  }
 
   async read({ resourceType, id }) {
     if (!resourceType) {

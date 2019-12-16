@@ -23,3 +23,16 @@ test('test invalid gets', async () => {
   // Missing id
   await expect(client.read({ resourceType: 'Patient' })).rejects.toThrow();
 });
+
+test('test simple creation', async () => {
+  nock(BASE_URL)
+    .post('/Patient', examplePatient)
+    .reply(201, examplePatient);
+
+  await client.create({ resourceType: 'Patient', body: examplePatient });
+});
+
+test('test invalid creation params', async () => {
+  await expect(client.create({ resourceType: 'Patient' })).rejects.toThrow();
+  await expect(client.create({ body: examplePatient })).rejects.toThrow();
+});
