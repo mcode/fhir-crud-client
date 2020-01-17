@@ -2,6 +2,7 @@ const nock = require('nock');
 const { FHIRClient } = require('../');
 const examplePatient = require('./fixtures/patient.json');
 const exampleSearchset = require('./fixtures/searchset.json');
+const exampleDeleteResponse = require('./fixtures/delete-response.json');
 
 const BASE_URL = 'http://example.com';
 const client = new FHIRClient(BASE_URL);
@@ -55,6 +56,16 @@ test('test updating resource', async () => {
 
   const newPatient = await client.update({ resourceType: 'Patient', id: examplePatient.id, body: modifiedPatient });
   expect(newPatient).toEqual(modifiedPatient);
+});
+
+test('test deletion', async () => {
+  nock(BASE_URL)
+    .delete(`/Patient/${examplePatient.id}`)
+    .reply(200, exampleDeleteResponse);
+
+  const outcome = await client.delete({ resourceType: 'Patient', id: examplePatient.id });
+  expect(outcome.resourceType).toEqual('OperationOutcome');
+  expect(outcome).toEqual(exampleDeleteResponse);
 });
 
 test('test search', async () => {
