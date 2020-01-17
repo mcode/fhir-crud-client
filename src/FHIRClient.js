@@ -1,10 +1,13 @@
 const axios = require('axios');
+const querystring = require('querystring');
+const _ = require('lodash');
 
 class FHIRClient {
-  constructor(baseURL) {
+  constructor(baseURL, headers = {}) {
     this.baseURL = baseURL;
     this.httpClient = axios.create({
       baseURL,
+      headers,
     });
   }
 
@@ -51,6 +54,16 @@ class FHIRClient {
     }
 
     const response = await this.httpClient.delete(`${resourceType}/${id}`);
+    return response.data;
+  }
+
+  async search({ resourceType, params = {} }) {
+    if (!resourceType) {
+      throw new Error('resourceType is required');
+    }
+
+    const searchString = _.isEmpty(params) ? '' : `?${querystring.stringify(params)}`;
+    const response = await this.httpClient.get(resourceType + searchString);
     return response.data;
   }
 }

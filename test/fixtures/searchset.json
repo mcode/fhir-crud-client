@@ -1,0 +1,720 @@
+{
+  "resourceType": "Bundle",
+  "id": "fbfc3234-8513-4407-a0a9-80f7d0edd86e",
+  "meta": {
+    "lastUpdated": "2020-01-17T19:49:06.719+00:00"
+  },
+  "type": "searchset",
+  "total": 3,
+  "entry": [
+    {
+      "fullUrl": "http://hapi.fhir.org/baseR4/Patient/1459",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "1459",
+        "meta": {
+          "versionId": "6",
+          "lastUpdated": "2019-12-31T06:55:04.933+00:00",
+          "source": "#20veBo8wBhnVOz71"
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div class=\"hapiHeaderText\">Tina A <b>ROY </b></div><table class=\"hapiPropertyTable\"><tbody><tr><td>Identifier</td><td>312480</td></tr><tr><td>Address</td><td><span>Street comp1 comp2 </span><br/><span>AddLine2 </span><br/><span>Seattle </span><span>WA </span><span>USA </span></td></tr><tr><td>Date of birth</td><td><span>10 October 2001</span></td></tr></tbody></table></div>"
+        },
+        "identifier": [
+          {
+            "use": "usual",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "MR",
+                  "display": "Medical record number"
+                }
+              ]
+            },
+            "system": "http://hl7.org/fhir/identifier-type",
+            "value": "312480"
+          },
+          {
+            "use": "official",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "PLAC",
+                  "display": "Placer Identifier"
+                }
+              ]
+            },
+            "system": "http://hl7.org/fhir/identifier-type",
+            "value": "8838"
+          },
+          {
+            "use": "official",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "PRN",
+                  "display": "Provider number"
+                }
+              ]
+            },
+            "system": "http://hl7.org/fhir/sid/us-ssn",
+            "value": "111222333"
+          },
+          {
+            "use": "secondary",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "SNO",
+                  "display": "Serial Number"
+                }
+              ]
+            },
+            "system": "http://hl7.org/fhir/identifier-type",
+            "value": "2333"
+          },
+          {
+            "use": "official",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "FILL",
+                  "display": "Filler Identifier"
+                }
+              ]
+            },
+            "system": "https://radboud.nl/id",
+            "value": "11111111111"
+          },
+          {
+            "use": "official",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "DL",
+                  "display": "Driver's license number"
+                }
+              ]
+            },
+            "system": "https://radboud.nl/identifiers/PatientIdentifier",
+            "value": "33333333333"
+          }
+        ],
+        "name": [
+          {
+            "use": "usual",
+            "family": "Roy",
+            "given": [
+              "Tina",
+              "A"
+            ]
+          },
+          {
+            "use": "usual",
+            "family": "Test",
+            "given": [
+              "Test"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "123-456-1111",
+            "use": "home"
+          },
+          {
+            "system": "email",
+            "value": "vijaya@gmail.com",
+            "use": "home"
+          },
+          {
+            "system": "email",
+            "use": "work"
+          }
+        ],
+        "gender": "male",
+        "birthDate": "2001-10-10",
+        "deceasedDateTime": "2010-11-11T11:12:14.456+07:00",
+        "address": [
+          {
+            "use": "home",
+            "line": [
+              "Street comp1 comp2",
+              "AddLine2"
+            ],
+            "city": "Seattle",
+            "state": "WA",
+            "postalCode": "98052",
+            "country": "USA"
+          }
+        ],
+        "maritalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-MaritalStatus",
+              "code": "M",
+              "display": "Married"
+            }
+          ]
+        },
+        "multipleBirthInteger": 2,
+        "contact": [
+          {
+            "relationship": [
+              {
+                "coding": [
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/v2-0131",
+                    "code": "N",
+                    "display": "Next-of-Kin"
+                  }
+                ]
+              }
+            ],
+            "name": {
+              "family": "Jones",
+              "given": [
+                "Sally",
+                "Andy"
+              ]
+            },
+            "telecom": [
+              {
+                "system": "phone",
+                "value": "123-456-1111",
+                "use": "home"
+              },
+              {
+                "system": "phone",
+                "value": "321-654-2222",
+                "use": "work"
+              }
+            ],
+            "address": {
+              "use": "home",
+              "line": [
+                "Street comp1 comp2",
+                "AddLine2"
+              ],
+              "city": "Seattle",
+              "state": "WA",
+              "postalCode": "98052",
+              "country": "USA"
+            },
+            "gender": "female",
+            "organization": {
+              "reference": "Organization/185"
+            }
+          },
+          {
+            "relationship": [
+              {
+                "coding": [
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/v2-0131",
+                    "code": "N",
+                    "display": "Next-of-Kin"
+                  }
+                ]
+              }
+            ],
+            "name": {
+              "family": "Doe",
+              "given": [
+                "John"
+              ]
+            },
+            "telecom": [
+              {
+                "system": "phone",
+                "value": "123-456-1111",
+                "use": "home"
+              }
+            ],
+            "address": {
+              "line": [
+                "Elmstreet32"
+              ],
+              "city": "Metown",
+              "postalCode": "19563"
+            },
+            "gender": "male",
+            "organization": {
+              "reference": "Organization/185"
+            }
+          }
+        ],
+        "communication": [
+          {
+            "language": {
+              "coding": [
+                {
+                  "system": "urn:ietf:bcp:47",
+                  "code": "en",
+                  "display": "English"
+                }
+              ]
+            }
+          }
+        ],
+        "managingOrganization": {
+          "reference": "Organization/185"
+        }
+      },
+      "search": {
+        "mode": "match"
+      }
+    },
+    {
+      "fullUrl": "http://hapi.fhir.org/baseR4/Patient/24739",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "24739",
+        "meta": {
+          "versionId": "1",
+          "lastUpdated": "2019-09-23T15:46:13.430+00:00",
+          "source": "#c927fc9354a6939a"
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div class=\"hapiHeaderText\">Tina A <b>ROY </b></div><table class=\"hapiPropertyTable\"><tbody><tr><td>Identifier</td><td>171200180</td></tr><tr><td>Address</td><td><span>Street comp1 comp2 </span><br/><span>AddLine2 </span><br/><span>Seattle </span><span>WA </span><span>USA </span></td></tr><tr><td>Date of birth</td><td><span>10 October 2001</span></td></tr></tbody></table></div>"
+        },
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "MR",
+                  "display": "Medical record number"
+                }
+              ]
+            },
+            "system": "https://radboud.nl/identifiers/PatientIdentifier",
+            "value": "171200180"
+          },
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "PLAC",
+                  "display": "Placer Identifier"
+                }
+              ]
+            },
+            "system": "https://radboud.nl/identifiers/PatientIdentifier",
+            "value": "8838"
+          },
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "PRN",
+                  "display": "Provider number"
+                }
+              ]
+            },
+            "system": "http://hl7.org/fhir/sid/us-ssn",
+            "value": "111222333"
+          },
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "SNO",
+                  "display": "Serial Number"
+                }
+              ]
+            },
+            "system": "https://radboud.nl/identifiers/PatientIdentifier",
+            "value": "2333"
+          },
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "FILL",
+                  "display": "Filler Identifier"
+                }
+              ]
+            },
+            "system": "https://radboud.nl/identifiers/PatientIdentifier",
+            "value": "11111111111"
+          },
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "DL",
+                  "display": "Driver's license number"
+                }
+              ]
+            },
+            "system": "https://radboud.nl/identifiers/PatientIdentifier",
+            "value": "33333333333"
+          }
+        ],
+        "name": [
+          {
+            "use": "usual",
+            "family": "Roy",
+            "given": [
+              "Tina",
+              "A"
+            ]
+          },
+          {
+            "use": "usual",
+            "family": "Test",
+            "given": [
+              "Test"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "123-456-1111",
+            "use": "home"
+          },
+          {
+            "system": "phone",
+            "value": "098-765-1111",
+            "use": "work"
+          },
+          {
+            "system": "email",
+            "use": "home"
+          },
+          {
+            "system": "email",
+            "use": "work"
+          }
+        ],
+        "gender": "male",
+        "birthDate": "2001-10-10",
+        "deceasedDateTime": "2010-11-11T11:12:14.000+05:30",
+        "address": [
+          {
+            "use": "home",
+            "line": [
+              "Street comp1 comp2",
+              "AddLine2"
+            ],
+            "city": "Seattle",
+            "state": "WA",
+            "postalCode": "98052",
+            "country": "USA"
+          }
+        ],
+        "maritalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-MaritalStatus",
+              "code": "M",
+              "display": "Married"
+            }
+          ]
+        },
+        "multipleBirthInteger": 2,
+        "communication": [
+          {
+            "language": {
+              "coding": [
+                {
+                  "system": "urn:ietf:bcp:47",
+                  "code": "en",
+                  "display": "English"
+                }
+              ]
+            }
+          }
+        ],
+        "managingOrganization": {
+          "reference": "Organization/185"
+        }
+      },
+      "search": {
+        "mode": "match"
+      }
+    },
+    {
+      "fullUrl": "http://hapi.fhir.org/baseR4/Patient/25091",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "25091",
+        "meta": {
+          "versionId": "1",
+          "lastUpdated": "2019-09-23T20:30:28.581+00:00",
+          "source": "#6ce32e9057796880"
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div class=\"hapiHeaderText\">TESTFIRST2 <b>TESTLAST2 </b></div><table class=\"hapiPropertyTable\"><tbody><tr><td>Identifier</td><td>778899</td></tr><tr><td>Address</td><td><span>111 SE TEST MN DR </span><br/><span>APT 1 </span><br/><span>HOMER </span><span>TX </span></td></tr><tr><td>Date of birth</td><td><span>25 June 1999</span></td></tr></tbody></table></div>"
+        },
+        "contained": [
+          {
+            "resourceType": "Practitioner",
+            "id": "17418",
+            "identifier": [
+              {
+                "use": "usual",
+                "type": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                      "code": "DN",
+                      "display": "Doctor Number",
+                      "userSelected": false
+                    }
+                  ],
+                  "text": "Doctor Number"
+                },
+                "system": "7581",
+                "value": "17418",
+                "period": {
+                  "start": "2019-09-02T23:56:02"
+                },
+                "assigner": {
+                  "display": "7581"
+                }
+              }
+            ],
+            "name": [
+              {
+                "use": "official",
+                "text": "TESTLAST, TESTFIRST",
+                "family": "TESTLAST",
+                "given": [
+                  "TESTFIRST"
+                ]
+              }
+            ]
+          }
+        ],
+        "identifier": [
+          {
+            "use": "usual",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "MR",
+                  "display": "Medical Record Number",
+                  "userSelected": false
+                }
+              ],
+              "text": "MRN"
+            },
+            "system": "7581",
+            "value": "778899",
+            "period": {
+              "start": "2019-09-02T23:56:02"
+            },
+            "assigner": {
+              "display": "7581"
+            }
+          }
+        ],
+        "active": false,
+        "name": [
+          {
+            "use": "official",
+            "text": "TESTLAST2, TESTFIRST2",
+            "family": "TESTLAST2",
+            "given": [
+              "TESTFIRST2"
+            ],
+            "period": {
+              "start": "2019-09-02T23:56:02"
+            }
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "(123)123-1233",
+            "use": "home",
+            "rank": 1
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1999-06-25T00:00:00",
+        "address": [
+          {
+            "use": "home",
+            "type": "both",
+            "text": "111 SE TEST MN DR APT 1, HOMER, TX, 72712",
+            "line": [
+              "111 SE TEST MN DR",
+              "APT 1"
+            ],
+            "city": "HOMER",
+            "state": "TX",
+            "postalCode": "72712",
+            "period": {
+              "start": "2019-09-02T23:56:02"
+            }
+          }
+        ],
+        "maritalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-MaritalStatus",
+              "code": "S",
+              "display": "never married",
+              "userSelected": false
+            },
+            {
+              "system": "local",
+              "code": "S"
+            }
+          ],
+          "text": "never married"
+        },
+        "contact": [
+          {
+            "relationship": [
+              {
+                "coding": [
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/v2-0131",
+                    "code": "MTH",
+                    "display": "mother",
+                    "userSelected": false
+                  },
+                  {
+                    "system": "local",
+                    "code": "32",
+                    "display": "MOTHER"
+                  }
+                ],
+                "text": "mother"
+              }
+            ],
+            "name": {
+              "use": "official",
+              "text": "TESTLAST3, TESTFIRST3",
+              "family": "TESTLAST3",
+              "given": [
+                "TESTFIRST3"
+              ],
+              "period": {
+                "start": "2019-09-02T23:56:02"
+              }
+            },
+            "telecom": [
+              {
+                "system": "phone",
+                "value": "(444)333-4444",
+                "use": "home",
+                "rank": 1
+              }
+            ],
+            "period": {
+              "start": "2019-09-02T23:56:02"
+            }
+          },
+          {
+            "relationship": [
+              {
+                "coding": [
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/v2-0131",
+                    "code": "ZZ",
+                    "display": "not mapped",
+                    "userSelected": false
+                  },
+                  {
+                    "system": "local",
+                    "code": "EMR"
+                  }
+                ],
+                "text": "not mapped"
+              }
+            ],
+            "name": {
+              "use": "official",
+              "text": ",",
+              "period": {
+                "start": "2019-09-02T23:56:02"
+              }
+            },
+            "telecom": [
+              {
+                "system": "phone",
+                "value": "(111)222-3333",
+                "use": "home",
+                "rank": 1
+              }
+            ],
+            "address": {
+              "use": "home",
+              "type": "both",
+              "text": "12322 N COMMON DR, YORK, CA, 72704",
+              "line": [
+                "12322 N COMMON DR"
+              ],
+              "city": "YORK",
+              "state": "CA",
+              "postalCode": "72704",
+              "period": {
+                "start": "2019-09-02T23:56:02"
+              }
+            },
+            "organization": {
+              "display": "TEST COMPANY"
+            },
+            "period": {
+              "start": "2019-09-02T23:56:02"
+            }
+          }
+        ],
+        "communication": [
+          {
+            "language": {
+              "coding": [
+                {
+                  "system": "urn:ietf:bcp:47",
+                  "code": "ZZ",
+                  "display": "not mapped",
+                  "userSelected": false
+                },
+                {
+                  "system": "local",
+                  "code": "E"
+                }
+              ],
+              "text": "not mapped"
+            },
+            "preferred": true
+          }
+        ],
+        "generalPractitioner": [
+          {
+            "reference": "#17418"
+          }
+        ],
+        "managingOrganization": {
+          "display": "7581"
+        }
+      },
+      "search": {
+        "mode": "match"
+      }
+    }
+  ]
+}

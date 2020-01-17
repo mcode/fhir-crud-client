@@ -1,6 +1,7 @@
 const nock = require('nock');
 const { FHIRClient } = require('../');
 const examplePatient = require('./fixtures/patient.json');
+const exampleSearchset = require('./fixtures/searchset.json');
 
 const BASE_URL = 'http://example.com';
 const client = new FHIRClient(BASE_URL);
@@ -54,4 +55,13 @@ test('test updating resource', async () => {
 
   const newPatient = await client.update({ resourceType: 'Patient', id: examplePatient.id, body: modifiedPatient });
   expect(newPatient).toEqual(modifiedPatient);
+});
+
+test('test search', async () => {
+  nock(BASE_URL)
+    .get('/Patient?family=test&given=test')
+    .reply(200, exampleSearchset);
+
+  const searchResult = await client.search({ resourceType: 'Patient', params: { family: 'test', given: 'test' } });
+  expect(searchResult).toEqual(exampleSearchset);
 });
