@@ -1,0 +1,37 @@
+{
+  "resourceType": "Bundle",
+  "id": "aca4332e-aa4f-4ce5-9a36-bdd5c33238b6",
+  "type": "transaction-response",
+  "link": [
+    {
+      "relation": "self",
+      "url": "http://hapi.fhir.org/baseR4"
+    }
+  ],
+  "entry": [
+    {
+      "response": {
+        "status": "201 Created",
+        "location": "Patient/591778/_history/1",
+        "etag": "1",
+        "lastModified": "2020-01-21T20:13:45.062+00:00"
+      }
+    },
+    {
+      "response": {
+        "status": "201 Created",
+        "location": "Patient/591779/_history/1",
+        "etag": "1",
+        "lastModified": "2020-01-21T20:13:45.062+00:00"
+      }
+    },
+    {
+      "response": {
+        "status": "201 Created",
+        "location": "Patient/591780/_history/1",
+        "etag": "1",
+        "lastModified": "2020-01-21T20:13:45.062+00:00"
+      }
+    }
+  ]
+}

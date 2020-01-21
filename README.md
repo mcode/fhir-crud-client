@@ -7,6 +7,7 @@ A lightweight Promise-based JavaScript FHIR client for CRUD operations
 * `update`
 * `delete`
 * `search`
+* `transaction`
 
 ## Installation
 
@@ -105,6 +106,22 @@ console.log(bundle);
 
 // With Promises
 client.search({ resourceType: 'Patient', params: { family: 'test' } })
+  .then((bundle) => {
+    console.log(bundle);
+  });
+```
+
+### transaction
+
+``` JavaScript
+// Upload a transaction Bundle
+
+// With async/await
+const bundle = await client.transaction({ body: aTransactionBundle });
+console.log(bundle);
+
+// With Promises
+client.search({ body: aTransactionBundle })
   .then((bundle) => {
     console.log(bundle);
   });

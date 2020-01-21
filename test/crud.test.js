@@ -1,8 +1,8 @@
 const nock = require('nock');
 const { FHIRClient } = require('../');
-const examplePatient = require('./fixtures/patient.json');
-const exampleSearchset = require('./fixtures/searchset.json');
-const exampleDeleteResponse = require('./fixtures/delete-response.json');
+const {
+  examplePatient, exampleSearchset, exampleDeleteResponse, exampleTxn, exampleTxnResponse,
+} = require('./fixtures');
 
 const BASE_URL = 'http://example.com';
 const client = new FHIRClient(BASE_URL);
@@ -75,4 +75,14 @@ test('test search', async () => {
 
   const searchResult = await client.search({ resourceType: 'Patient', params: { family: 'test', given: 'test' } });
   expect(searchResult).toEqual(exampleSearchset);
+});
+
+test('test uploading a transaction bundle', async () => {
+  nock(BASE_URL)
+    .post('/', exampleTxn)
+    .reply(200, exampleTxnResponse);
+
+  const txnResult = await client.transaction({ body: exampleTxn });
+  expect(txnResult.resourceType).toEqual('Bundle');
+  expect(txnResult.type).toEqual('transaction-response');
 });

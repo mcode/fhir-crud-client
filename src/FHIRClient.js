@@ -66,6 +66,15 @@ class FHIRClient {
     const response = await this.httpClient.get(resourceType + searchString);
     return response.data;
   }
+
+  async transaction({ body }) {
+    if (!body) {
+      throw new Error('body is required');
+    }
+
+    const response = await this.httpClient.post('/', body);
+    return response.data;
+  }
 }
 
 module.exports = FHIRClient;
