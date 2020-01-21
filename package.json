@@ -1,6 +1,6 @@
 {
   "name": "fhir-crud-client",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "A simple REST client for CRUD operations on FHIR server",
   "repository": "https://github.com/mgramigna/fhir-crud-client",
   "main": "index.js",
