@@ -42,7 +42,7 @@ const resource = await client.read({ resourceType: 'Patient', id: 'my-patient' }
 console.log(resource);
 
 // With Promises
-client.read({ resourceType: 'Patient', body: 'my-patient' })
+client.read({ resourceType: 'Patient', id: 'my-patient' })
   .then((resource) => {
     console.log(resource);
   });
