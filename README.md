@@ -9,6 +9,8 @@ A lightweight Promise-based JavaScript FHIR client for CRUD operations
 * `search`
 * `transaction`
 
+Additionally, the client exposes `FHIRClient.metadata()` function for triggering a metadata request, and `FHIRClient.setAuthToken()` for setting an Authorization token
+
 ## Installation
 
 ``` bash
@@ -47,6 +49,7 @@ client.read({ resourceType: 'Patient', id: 'my-patient' })
     console.log(resource);
   });
 ```
+
 ### create
 
 ``` JavaScript
@@ -125,4 +128,28 @@ client.search({ body: aTransactionBundle })
   .then((bundle) => {
     console.log(bundle);
   });
+```
+
+### metadata
+
+``` JavaScript
+// Make a get request to `BASE_URL/metadata`
+
+// With async/await
+const response = await client.metadata();
+console.log(response);
+
+// With Promises
+client.metadata()
+  .then((response) => {
+    console.log(response);
+  });
+```
+
+### setAuthToken
+
+``` JavaScript
+// Set an authorization token on the HTTP Client
+
+client.setAuthToken(TOKEN_GOES_HERE)
 ```
