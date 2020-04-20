@@ -11,6 +11,18 @@ class FHIRClient {
     });
   }
 
+  setAuthToken(authToken) {
+    if (!authToken) {
+      throw new Error('authToken is required');
+    }
+    this.httpClient.defaults.headers.Authorization = `Bearer ${authToken}`;
+  }
+
+  async metadata() {
+    const response = await this.httpClient.get('/metadata');
+    return response.data;
+  }
+
   async create({ resourceType, body }) {
     if (!resourceType) {
       throw new Error('resourceType is required');
