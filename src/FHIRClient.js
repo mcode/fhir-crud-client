@@ -11,9 +11,9 @@ class FHIRClient {
     });
   }
 
-  setAuthToken(token) {
-    if (!token) {
-      throw new Error('token is required');
+  setAuthToken(authToken) {
+    if (!authToken) {
+      throw new Error('authToken is required');
     }
     this.httpClient.defaults.headers.Authorization = `Bearer ${authToken}`;
   }
