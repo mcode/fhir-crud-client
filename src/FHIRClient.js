@@ -19,7 +19,8 @@ class FHIRClient {
   }
 
   async metadata() {
-    return this.httpClient.get('/metadata');
+    const response = await this.httpClient.get('/metadata');
+    return response.data;
   }
 
   async create({ resourceType, body }) {
