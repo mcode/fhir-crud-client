@@ -18,6 +18,17 @@ class FHIRClient {
     this.httpClient.defaults.headers.Authorization = `Bearer ${authToken}`;
   }
 
+  updateRequestHeaders(newHeaders) {
+    if (!newHeaders) {
+      throw new Error('newHeaders is required');
+    }
+    // Don't just replace since Axios creates some custom headers
+    this.httpClient.defaults.headers = {
+      ...this.httpClient.defaults.headers,
+      ...newHeaders
+    }
+  }
+
   async metadata() {
     const response = await this.httpClient.get('/metadata');
     return response.data;

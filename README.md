@@ -153,3 +153,11 @@ client.metadata()
 
 client.setAuthToken(TOKEN_GOES_HERE)
 ```
+
+### updateRequestHeaders
+
+``` JavaScript
+// Update the request headers of our HTTP Client
+
+client.updateRequestHeaders(NEW_HEADERS)
+```
