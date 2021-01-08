@@ -1,24 +1,29 @@
-const axios = require('axios');
-const querystring = require('querystring');
-const _ = require('lodash');
+import axios, { AxiosInstance } from 'axios';
+import querystring from 'querystring';
+import _ from 'lodash';
+import { RequestArgs, RequestHeaders } from './types';
 
-class FHIRClient {
-  constructor(baseURL, headers = {}) {
+export default class FHIRClient {
+  baseURL: string;
+  headers: any;
+  httpClient: AxiosInstance;
+
+  constructor(baseURL: string, headers: RequestHeaders = {}) {
     this.baseURL = baseURL;
     this.httpClient = axios.create({
       baseURL,
-      headers,
+      headers
     });
   }
 
-  setAuthToken(authToken) {
+  setAuthToken(authToken: string) {
     if (!authToken) {
       throw new Error('authToken is required');
     }
     this.httpClient.defaults.headers.Authorization = `Bearer ${authToken}`;
   }
 
-  updateRequestHeaders(newHeaders) {
+  updateRequestHeaders(newHeaders: any) {
     if (!newHeaders) {
       throw new Error('newHeaders is required');
     }
@@ -26,7 +31,7 @@ class FHIRClient {
     this.httpClient.defaults.headers = {
       ...this.httpClient.defaults.headers,
       ...newHeaders
-    }
+    };
   }
 
   async metadata() {
@@ -34,7 +39,7 @@ class FHIRClient {
     return response.data;
   }
 
-  async create({ resourceType, body }) {
+  async create({ resourceType, body }: RequestArgs) {
     if (!resourceType) {
       throw new Error('resourceType is required');
     } else if (!body) {
@@ -45,7 +50,7 @@ class FHIRClient {
     return response.data;
   }
 
-  async read({ resourceType, id }) {
+  async read({ resourceType, id }: RequestArgs) {
     if (!resourceType) {
       throw new Error('resourceType is required');
     } else if (!id) {
@@ -56,7 +61,7 @@ class FHIRClient {
     return response.data;
   }
 
-  async update({ resourceType, id, body }) {
+  async update({ resourceType, id, body }: RequestArgs) {
     if (!resourceType) {
       throw new Error('resourceType is required');
     } else if (!id) {
@@ -69,7 +74,7 @@ class FHIRClient {
     return response.data;
   }
 
-  async delete({ resourceType, id }) {
+  async delete({ resourceType, id }: RequestArgs) {
     if (!resourceType) {
       throw new Error('resourceType is required');
     } else if (!id) {
@@ -80,7 +85,7 @@ class FHIRClient {
     return response.data;
   }
 
-  async search({ resourceType, params = {} }) {
+  async search({ resourceType, params = {} }: RequestArgs) {
     if (!resourceType) {
       throw new Error('resourceType is required');
     }
@@ -90,7 +95,7 @@ class FHIRClient {
     return response.data;
   }
 
-  async transaction({ body }) {
+  async transaction({ body }: RequestArgs) {
     if (!body) {
       throw new Error('body is required');
     }
@@ -99,5 +104,3 @@ class FHIRClient {
     return response.data;
   }
 }
-
-module.exports = FHIRClient;

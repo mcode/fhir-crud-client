@@ -1,16 +1,12 @@
-const nock = require('nock');
-const { FHIRClient } = require('../');
-const {
-  examplePatient, exampleSearchset, exampleDeleteResponse, exampleTxn, exampleTxnResponse,
-} = require('./fixtures');
+import nock from 'nock';
+import { FHIRClient } from '../';
+import { examplePatient, exampleSearchset, exampleDeleteResponse, exampleTxn, exampleTxnResponse } from './fixtures';
 
 const BASE_URL = 'http://example.com';
 const client = new FHIRClient(BASE_URL);
 
 test('test simple gets', async () => {
-  nock(BASE_URL)
-    .get(`/Patient/${examplePatient.id}`)
-    .reply(200, examplePatient);
+  nock(BASE_URL).get(`/Patient/${examplePatient.id}`).reply(200, examplePatient);
 
   const patient = await client.read({ resourceType: 'Patient', id: `${examplePatient.id}` });
   expect(patient.resourceType).toEqual('Patient');
@@ -18,9 +14,6 @@ test('test simple gets', async () => {
 });
 
 test('test invalid gets', async () => {
-  // Integer is not a valid arugment to read
-  await expect(client.read(98)).rejects.toThrow();
-
   // Missing resourceType
   await expect(client.read({ id: '98' })).rejects.toThrow();
 
@@ -29,9 +22,7 @@ test('test invalid gets', async () => {
 });
 
 test('test simple creation', async () => {
-  nock(BASE_URL)
-    .post('/Patient', examplePatient)
-    .reply(201, examplePatient);
+  nock(BASE_URL).post('/Patient', examplePatient).reply(201, examplePatient);
 
   const patient = await client.create({ resourceType: 'Patient', body: examplePatient });
   expect(patient.resourceType).toEqual('Patient');
@@ -45,23 +36,21 @@ test('test invalid creation params', async () => {
 
 test('test updating resource', async () => {
   const modifiedPatient = { ...examplePatient };
-  modifiedPatient.name = [{
-    family: 'NewName',
-    given: ['NewName'],
-  }];
+  modifiedPatient.name = [
+    {
+      family: 'NewName',
+      given: ['NewName']
+    }
+  ];
 
-  nock(BASE_URL)
-    .put(`/Patient/${examplePatient.id}`, modifiedPatient)
-    .reply(200, modifiedPatient);
+  nock(BASE_URL).put(`/Patient/${examplePatient.id}`, modifiedPatient).reply(200, modifiedPatient);
 
   const newPatient = await client.update({ resourceType: 'Patient', id: examplePatient.id, body: modifiedPatient });
   expect(newPatient).toEqual(modifiedPatient);
 });
 
 test('test deletion', async () => {
-  nock(BASE_URL)
-    .delete(`/Patient/${examplePatient.id}`)
-    .reply(200, exampleDeleteResponse);
+  nock(BASE_URL).delete(`/Patient/${examplePatient.id}`).reply(200, exampleDeleteResponse);
 
   const outcome = await client.delete({ resourceType: 'Patient', id: examplePatient.id });
   expect(outcome.resourceType).toEqual('OperationOutcome');
@@ -69,18 +58,14 @@ test('test deletion', async () => {
 });
 
 test('test search', async () => {
-  nock(BASE_URL)
-    .get('/Patient?family=test&given=test')
-    .reply(200, exampleSearchset);
+  nock(BASE_URL).get('/Patient?family=test&given=test').reply(200, exampleSearchset);
 
   const searchResult = await client.search({ resourceType: 'Patient', params: { family: 'test', given: 'test' } });
   expect(searchResult).toEqual(exampleSearchset);
 });
 
 test('test uploading a transaction bundle', async () => {
-  nock(BASE_URL)
-    .post('/', exampleTxn)
-    .reply(200, exampleTxnResponse);
+  nock(BASE_URL).post('/', exampleTxn).reply(200, exampleTxnResponse);
 
   const txnResult = await client.transaction({ body: exampleTxn });
   expect(txnResult.resourceType).toEqual('Bundle');
