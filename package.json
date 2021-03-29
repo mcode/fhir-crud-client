@@ -4,6 +4,15 @@
   "description": "A simple REST client for CRUD operations on FHIR server",
   "repository": "https://github.com/mgramigna/fhir-crud-client",
   "main": "index.js",
+  "contributors": [
+    "Julia Afeltra <jafeltra@mitre.org>",
+    "Julian Carter <jacarter@mitre.org>",
+    "Matthew Gramigna <mgramigna@mitre.org>",
+    "Daniel Lee <daniellee@mitre.org>",
+    "Dylan Mahalingam <kmahalingam@mitre.org>",
+    "Dylan Mendelowitz <dmendelowitz@mitre.org>",
+    "Dylan Phelan <dphelan@mitre.org>"
+  ],
   "scripts": {
     "lint": "eslint ./**/*.js",
     "lint-fix": "eslint ./**/*.js --fix",
